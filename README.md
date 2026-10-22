@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mubarak Portfolio
 
-## Getting Started
+A data-driven portfolio built with Next.js 16, React, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+## Project structure
+
+- `src/app` contains the App Router pages and global styles.
+- `src/components` contains reusable layout, section, and project components.
+- `src/data` contains portfolio content so it can be updated without changing UI code.
+- `src/types` contains shared TypeScript models.
+- `public/images` and `public/documents` contain static portfolio assets.
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Content and assets
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Update the project content in `src/data/projects.ts`, then add matching project images at:
 
-## Learn More
+```text
+public/images/projects/paybankx.webp
+public/images/projects/rocky-earth.webp
+```
 
-To learn more about Next.js, take a look at the following resources:
+Project routes are generated from the project slugs:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```text
+/projects/paybankx
+/projects/rocky-earth
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The GitHub username is configured in `.env.local`. Add
+`NEXT_PUBLIC_SITE_URL` when the production domain is available.
 
-## Deploy on Vercel
+The profile image, Open Graph image, and resume can be added under the paths in
+the project structure when those final assets are available.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Checks
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run lint
+npm run build
+```
